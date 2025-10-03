@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>FitTrack Jr.</title>
+<style>
+  body {
+    margin: 0;
+    font-family: "Comic Sans MS", cursive, Arial, sans-serif;
+    background: linear-gradient(to bottom right, #fdfbfb, #ebedee);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Floating background bubbles */
+  .bubble {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.25;
+    animation: floatUp 14s infinite linear;
+    background: radial-gradient(circle at 30% 30%, #56c2ff, transparent);
+    z-index: 0;
+  }
+  .bubble:nth-child(1) { width: 80px; height: 80px; left: 15%; bottom: -150px; animation-duration: 12s; }
+  .bubble:nth-child(2) { width: 120px; height: 120px; left: 60%; bottom: -200px; animation-duration: 18s; }
+  .bubble:nth-child(3) { width: 60px; height: 60px; left: 80%; bottom: -180px; animation-duration: 10s; }
+  @keyframes floatUp {
+    0% { transform: translateY(0) scale(1); opacity: 0.25; }
+    50% { transform: translateY(-300px) scale(1.2); opacity: 0.6; }
+    100% { transform: translateY(-600px) scale(1); opacity: 0; }
+  }
+
+  /* Header */
+  header {
+    background: linear-gradient(90deg, #56c2ff, #93d8a7, #ffe36d);
+    padding: 2rem 1rem;
+    text-align: center;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    position: relative;
+    z-index: 1;
+  }
+  header h1 {
+    margin: 0;
+    font-size: 3rem;
+    color: #1a3e62;
+    text-shadow: 2px 2px 0px #fff;
+    animation: float 3s ease-in-out infinite;
+  }
+  header p {
+    margin: 0.3rem 0 0;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #335c2a;
+  }
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0px); }
+  }
+
+  /* Main */
+  main {
+    display: flex;
+    flex-direction: column;
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 1rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Game Cards */
+  .games {
+    display: flex;
+    margin: 80px;
+    /* grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); */
+    gap: 1.5rem;
+  }
+  .card {
+    background: white;
+    border-radius: 25px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    padding: 2rem 1rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  .card:hover {
+    transform: scale(1.08) rotate(-2deg);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.2);
+  }
+  .card span {
+    font-size: 4rem;
+    display: block;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+  }
+  .card:hover span {
+    transform: rotate(15deg) scale(1.2);
+  }
+  .card h3 {
+    font-size: 1.4rem;
+    margin: 0.5rem 0 0;
+    color: #333;
+  }
+
+  /* Glow effect */
+  .card::after {
+    content: "";
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.5), transparent 70%);
+    transform: scale(0);
+    transition: transform 0.5s ease;
+  }
+  .card:hover::after {
+    transform: scale(1);
+  }
+
+  @media (max-width: 600px) {
+    header h1 { font-size: 2.2rem; }
+    header p { font-size: 1rem; }
+    .card { padding: 1.5rem; }
+    .card span { font-size: 3rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Floating background bubbles -->
+<div class="bubble"></div>
+<div class="bubble"></div>
+<div class="bubble"></div>
+
+<header>
+  <h1>FitTrack Jr. </h1>
+  <p>Learn Healthy Habits Through Play!</p>
+</header>
+
+<main>
+  <div class="games">
+    <a href="https://play-healthy-plate-three.vercel.app/" class="card">
+      <span>🥗</span>
+      <h3>Nutrition & Fitness</h3>
+    </a>
+    <a href="https://game2-theta-ecru.vercel.app/" class="card">
+      <span>🧘</span>
+      <h3>Cleanliness & Environment</h3>
+    </a>
+    <a href="https://yoga-game.vercel.app/" class="card">
+      <span>🌍</span>
+      <h3>Mindfulness & Wellness</h3>
+    </a>
+  </div>
+</main>
+
+</body>
+</html>
