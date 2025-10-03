@@ -78,7 +78,6 @@
   .games {
     display: flex;
     margin: 80px;
-    /* grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); */
     gap: 1.5rem;
   }
   .card {
@@ -125,11 +124,51 @@
     transform: scale(1);
   }
 
+  /* Responsive Media Queries */
+  @media (max-width: 900px) {
+    .games {
+      margin: 40px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .card {
+      width: 45%;   /* 2 cards per row */
+      margin-bottom: 20px;
+    }
+  }
+
   @media (max-width: 600px) {
-    header h1 { font-size: 2.2rem; }
+    header h1 { font-size: 2rem; }
     header p { font-size: 1rem; }
-    .card { padding: 1.5rem; }
-    .card span { font-size: 3rem; }
+
+    .games {
+      margin: 20px;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .card {
+      width: 90%;   /* Full width */
+      padding: 1.2rem;
+    }
+
+    .card span {
+      font-size: 2.5rem;
+    }
+
+    .card h3 {
+      font-size: 1.1rem;
+    }
+  }
+
+  @media (min-width: 1400px) {
+    .games {
+      justify-content: space-between;
+      margin: 100px auto;
+    }
+    .card {
+      width: 30%;
+    }
   }
 </style>
 </head>
@@ -155,7 +194,7 @@
       <span>🧘</span>
       <h3>Cleanliness & Environment</h3>
     </a>
-    <a href="https://yoga-game.vercel.app/" class="card">
+    <a href="https://stretchquest-kids-yoga.vercel.app/" class="card">
       <span>🌍</span>
       <h3>Mindfulness & Wellness</h3>
     </a>
